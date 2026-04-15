@@ -1,0 +1,927 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Morning Edition — April 15, 2026</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,700;0,9..144,900;1,9..144,300;1,9..144,700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --ff-display: 'Fraunces', Georgia, serif;
+    --ff-body: 'Inter', system-ui, sans-serif;
+  }
+
+  html { font-size: 18px; scroll-behavior: smooth; }
+
+  body {
+    background: #111;
+    color: #fff;
+    font-family: var(--ff-body);
+  }
+
+  a { color: inherit; text-decoration: none; }
+  a:hover { text-decoration: underline; }
+
+  /* ── COVER ───────────────────────────────────────── */
+  .cover {
+    min-height: 100vh;
+    background: #0a0a0a;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    padding: 8vw 10vw;
+    position: relative;
+    overflow: hidden;
+  }
+  .cover::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(ellipse at 70% 50%, rgba(80,40,180,0.18) 0%, transparent 65%);
+    pointer-events: none;
+  }
+  .cover-eyebrow {
+    font-family: var(--ff-body);
+    font-size: clamp(0.75rem, 1.2vw, 1rem);
+    font-weight: 600;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: #888;
+    margin-bottom: 2.5rem;
+  }
+  .cover-title {
+    font-family: var(--ff-display);
+    font-size: clamp(5rem, 14vw, 13rem);
+    font-weight: 900;
+    line-height: 0.88;
+    letter-spacing: -0.02em;
+    color: #fff;
+    margin-bottom: 2.5rem;
+  }
+  .cover-date {
+    font-family: var(--ff-display);
+    font-style: italic;
+    font-size: clamp(1.4rem, 3vw, 2.8rem);
+    font-weight: 300;
+    color: #aaa;
+    margin-bottom: 4rem;
+  }
+  .cover-rule {
+    width: 6rem;
+    height: 3px;
+    background: #5a3af0;
+    margin-bottom: 3rem;
+  }
+  .cover-toc {
+    display: flex;
+    flex-direction: column;
+    gap: 0.6rem;
+  }
+  .cover-toc a {
+    font-size: clamp(0.95rem, 1.4vw, 1.15rem);
+    color: #ccc;
+    font-weight: 400;
+    transition: color 0.15s;
+  }
+  .cover-toc a:hover { color: #fff; }
+  .cover-toc a .num {
+    display: inline-block;
+    width: 2.2rem;
+    color: #555;
+    font-weight: 600;
+  }
+  .cover-flag {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4rem;
+    background: #e63946;
+    color: #fff;
+    font-size: 0.72rem;
+    font-weight: 700;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    padding: 0.18rem 0.55rem;
+    border-radius: 2px;
+    margin-left: 0.5rem;
+    vertical-align: middle;
+  }
+
+  /* ── SPREADS ─────────────────────────────────────── */
+  .spread {
+    min-height: 100vh;
+    display: grid;
+    padding: 7vw 10vw;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .spread-meta {
+    font-family: var(--ff-body);
+    font-size: clamp(0.7rem, 1vw, 0.85rem);
+    font-weight: 600;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    opacity: 0.5;
+    margin-bottom: 1.5rem;
+  }
+  .spread-source {
+    font-family: var(--ff-body);
+    font-size: clamp(0.85rem, 1.1vw, 1rem);
+    font-weight: 500;
+    opacity: 0.55;
+    margin-bottom: 0.6rem;
+  }
+  .spread-title {
+    font-family: var(--ff-display);
+    font-weight: 900;
+    line-height: 0.92;
+    letter-spacing: -0.02em;
+  }
+  .spread-body {
+    font-family: var(--ff-body);
+    font-size: clamp(1.05rem, 1.6vw, 1.35rem);
+    font-weight: 400;
+    line-height: 1.65;
+    max-width: 70ch;
+  }
+  .spread-link {
+    display: inline-block;
+    margin-top: 2.5rem;
+    font-size: clamp(0.9rem, 1.2vw, 1rem);
+    font-weight: 600;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    border-bottom: 2px solid currentColor;
+    padding-bottom: 0.2em;
+    opacity: 0.75;
+  }
+  .spread-link:hover { opacity: 1; text-decoration: none; }
+
+  /* ── 1. HERO — Stop Flock ────────────────────────── */
+  .s-hero {
+    background: #0d0d0d;
+    align-content: end;
+    padding-bottom: 10vw;
+  }
+  .s-hero .numeral {
+    position: absolute;
+    top: -0.05em;
+    right: 6vw;
+    font-family: var(--ff-display);
+    font-size: clamp(18rem, 42vw, 46rem);
+    font-weight: 900;
+    line-height: 1;
+    color: #fff;
+    opacity: 0.03;
+    user-select: none;
+    pointer-events: none;
+  }
+  .s-hero .spread-title {
+    font-size: clamp(4rem, 11vw, 11rem);
+    color: #fff;
+    margin-bottom: 2rem;
+  }
+  .s-hero .spread-body { color: #ccc; }
+  .s-hero .badge {
+    display: inline-block;
+    background: #e63946;
+    color: #fff;
+    font-size: clamp(0.7rem, 1vw, 0.85rem);
+    font-weight: 700;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    padding: 0.3rem 0.9rem;
+    border-radius: 2px;
+    margin-bottom: 2rem;
+  }
+  .s-hero .pts {
+    font-family: var(--ff-display);
+    font-size: clamp(2rem, 4vw, 4rem);
+    font-weight: 900;
+    color: #e63946;
+    margin-top: 3rem;
+  }
+  .s-hero .pts span {
+    font-family: var(--ff-body);
+    font-size: 0.4em;
+    font-weight: 400;
+    color: #888;
+    vertical-align: middle;
+    margin-left: 0.4em;
+  }
+
+  /* ── 2. MIDNIGHT ALERT — Claude Outage ──────────── */
+  .s-midnight {
+    background: #0b0e1a;
+    align-content: center;
+  }
+  .s-midnight::after {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 5px;
+    background: linear-gradient(90deg, #f5a623, #e63946, #f5a623);
+    background-size: 200% 100%;
+    animation: stripe 3s linear infinite;
+  }
+  @keyframes stripe { 0%{background-position:0 0} 100%{background-position:200% 0} }
+  .s-midnight .numeral {
+    position: absolute;
+    bottom: -0.1em;
+    right: 5vw;
+    font-family: var(--ff-display);
+    font-size: clamp(16rem, 38vw, 42rem);
+    font-weight: 900;
+    line-height: 1;
+    color: #f5a623;
+    opacity: 0.04;
+    user-select: none;
+    pointer-events: none;
+  }
+  .s-midnight .spread-meta { color: #f5a623; opacity: 1; }
+  .s-midnight .spread-title {
+    font-size: clamp(3.5rem, 9vw, 9rem);
+    color: #fff;
+    margin-bottom: 2rem;
+  }
+  .s-midnight .spread-body { color: #b0b8d0; }
+  .s-midnight .alert-pill {
+    display: inline-flex;
+    gap: 0.6rem;
+    align-items: center;
+    background: rgba(245,166,35,0.12);
+    border: 1px solid rgba(245,166,35,0.4);
+    color: #f5a623;
+    font-size: clamp(0.85rem, 1.2vw, 1rem);
+    font-weight: 600;
+    padding: 0.5rem 1.2rem;
+    border-radius: 100px;
+    margin-bottom: 2.5rem;
+  }
+  .s-midnight .flag-you { margin-left: 1rem; }
+
+  /* ── 3. TERMINAL — MCP Observability ────────────── */
+  .s-terminal {
+    background: #0a120a;
+    align-content: center;
+    font-family: var(--ff-body);
+  }
+  .s-terminal .numeral {
+    position: absolute;
+    right: 6vw;
+    top: 50%;
+    transform: translateY(-50%);
+    font-family: 'Courier New', monospace;
+    font-size: clamp(16rem, 36vw, 40rem);
+    font-weight: 900;
+    line-height: 1;
+    color: #00ff41;
+    opacity: 0.04;
+    user-select: none;
+    pointer-events: none;
+  }
+  .s-terminal .term-prompt {
+    font-family: 'Courier New', monospace;
+    font-size: clamp(0.8rem, 1.1vw, 0.95rem);
+    color: #00ff41;
+    margin-bottom: 2rem;
+    opacity: 0.7;
+  }
+  .s-terminal .spread-title {
+    font-size: clamp(3rem, 8vw, 8rem);
+    color: #00ff41;
+    margin-bottom: 2rem;
+    font-family: var(--ff-display);
+  }
+  .s-terminal .spread-body { color: #8fbc8f; }
+  .s-terminal .spread-source { color: #4a9f4a; }
+  .s-terminal .spread-link { color: #00ff41; }
+  .s-terminal .term-tag {
+    display: inline-block;
+    font-family: 'Courier New', monospace;
+    background: rgba(0,255,65,0.1);
+    border: 1px solid rgba(0,255,65,0.3);
+    color: #00ff41;
+    font-size: 0.8rem;
+    padding: 0.2rem 0.6rem;
+    border-radius: 3px;
+    margin-right: 0.5rem;
+    margin-top: 1.5rem;
+  }
+
+  /* ── 4. ROSE STAMP — AI Legal Warning ───────────── */
+  .s-rose {
+    background: #f5ede3;
+    color: #2a1a0e;
+    align-content: center;
+  }
+  .s-rose .stamp {
+    position: absolute;
+    top: 8vw;
+    right: 8vw;
+    width: clamp(10rem, 18vw, 18rem);
+    height: clamp(10rem, 18vw, 18rem);
+    border: 6px solid #c0392b;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    font-family: var(--ff-display);
+    font-size: clamp(1rem, 2vw, 1.6rem);
+    font-weight: 900;
+    color: #c0392b;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    transform: rotate(12deg);
+    opacity: 0.75;
+    line-height: 1.1;
+    padding: 1rem;
+  }
+  .s-rose .numeral {
+    position: absolute;
+    bottom: -0.05em;
+    left: 6vw;
+    font-family: var(--ff-display);
+    font-size: clamp(16rem, 38vw, 42rem);
+    font-weight: 900;
+    line-height: 1;
+    color: #c0392b;
+    opacity: 0.05;
+    user-select: none;
+    pointer-events: none;
+  }
+  .s-rose .spread-meta { color: #c0392b; opacity: 0.7; }
+  .s-rose .spread-title {
+    font-size: clamp(3rem, 8vw, 8rem);
+    color: #2a1a0e;
+    margin-bottom: 2rem;
+  }
+  .s-rose .spread-body { color: #5a3a28; max-width: 60ch; }
+  .s-rose .spread-link { color: #c0392b; }
+  .s-rose .spread-source { color: #8a5a40; }
+
+  /* ── 5. ACADEMIC DROP-CAP — Compiler Papers ─────── */
+  .s-academic {
+    background: #fdf8f0;
+    color: #1a1208;
+    align-content: center;
+  }
+  .s-academic .numeral {
+    position: absolute;
+    top: -0.1em;
+    right: 4vw;
+    font-family: var(--ff-display);
+    font-size: clamp(18rem, 44vw, 50rem);
+    font-weight: 900;
+    line-height: 1;
+    color: #8b7355;
+    opacity: 0.08;
+    user-select: none;
+    pointer-events: none;
+  }
+  .s-academic .spread-meta { color: #6b5535; opacity: 0.8; }
+  .s-academic .spread-source { color: #8b6a40; }
+  .s-academic .spread-title {
+    font-size: clamp(3rem, 8vw, 8rem);
+    color: #1a1208;
+    margin-bottom: 2rem;
+  }
+  .s-academic .spread-body {
+    color: #3d2d16;
+    font-size: clamp(1.1rem, 1.7vw, 1.45rem);
+    line-height: 1.7;
+  }
+  .s-academic .spread-body::first-letter {
+    font-family: var(--ff-display);
+    font-size: 5.5em;
+    font-weight: 900;
+    float: left;
+    line-height: 0.82;
+    margin-right: 0.08em;
+    margin-top: 0.06em;
+    color: #6b5535;
+  }
+  .s-academic .spread-link { color: #6b5535; }
+  .s-academic .pts-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    background: #6b5535;
+    color: #fdf8f0;
+    font-size: 0.85rem;
+    font-weight: 600;
+    padding: 0.35rem 0.9rem;
+    border-radius: 3px;
+    margin-top: 2rem;
+  }
+
+  /* ── 6. BIG-STAT — Gemma 4 on iPhone ────────────── */
+  .s-bigstat {
+    background: #0a0a1a;
+    align-content: center;
+    color: #fff;
+  }
+  .s-bigstat .stat-num {
+    font-family: var(--ff-display);
+    font-size: clamp(7rem, 22vw, 22rem);
+    font-weight: 900;
+    line-height: 0.85;
+    background: linear-gradient(135deg, #7c3aed, #3b82f6, #06b6d4);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    margin-bottom: 1rem;
+  }
+  .s-bigstat .stat-label {
+    font-family: var(--ff-body);
+    font-size: clamp(0.75rem, 1.1vw, 0.9rem);
+    font-weight: 700;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: #7c3aed;
+    margin-bottom: 3rem;
+  }
+  .s-bigstat .spread-title {
+    font-size: clamp(2.5rem, 6vw, 6rem);
+    color: #fff;
+    margin-bottom: 2rem;
+  }
+  .s-bigstat .spread-body { color: #94a3b8; }
+  .s-bigstat .spread-source { color: #64748b; }
+  .s-bigstat .numeral {
+    position: absolute;
+    bottom: -0.1em;
+    right: 4vw;
+    font-family: var(--ff-display);
+    font-size: clamp(18rem, 42vw, 48rem);
+    font-weight: 900;
+    line-height: 1;
+    color: #7c3aed;
+    opacity: 0.04;
+    user-select: none;
+    pointer-events: none;
+  }
+
+  /* ── 7. WEIRD SCIENCE — Sea Slugs ───────────────── */
+  .s-science {
+    background: #071a1a;
+    align-content: center;
+    color: #e0f5f5;
+  }
+  .s-science .numeral {
+    position: absolute;
+    top: 50%;
+    right: 4vw;
+    transform: translateY(-50%);
+    font-family: var(--ff-display);
+    font-size: clamp(16rem, 38vw, 44rem);
+    font-weight: 900;
+    line-height: 1;
+    color: #0d9488;
+    opacity: 0.08;
+    user-select: none;
+    pointer-events: none;
+  }
+  .s-science .eyebrow-tag {
+    display: inline-block;
+    border: 2px solid #0d9488;
+    color: #0d9488;
+    font-size: clamp(0.7rem, 1vw, 0.85rem);
+    font-weight: 700;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    padding: 0.3rem 0.9rem;
+    margin-bottom: 2rem;
+  }
+  .s-science .spread-title {
+    font-size: clamp(2.8rem, 7.5vw, 7.5rem);
+    color: #a7f3d0;
+    margin-bottom: 0.5rem;
+  }
+  .s-science .sci-name {
+    font-family: var(--ff-display);
+    font-style: italic;
+    font-size: clamp(1.2rem, 2.5vw, 2.2rem);
+    color: #0d9488;
+    margin-bottom: 2.5rem;
+    font-weight: 300;
+  }
+  .s-science .spread-body { color: #99d6d6; max-width: 65ch; }
+  .s-science .spread-source { color: #4a9f9f; }
+  .s-science .spread-link { color: #a7f3d0; }
+
+  /* ── 8. GALLERY — Guernica Gigapixel ────────────── */
+  .s-gallery {
+    background: #111009;
+    align-content: end;
+    padding-bottom: 10vw;
+    color: #f0ede0;
+  }
+  .s-gallery .numeral {
+    position: absolute;
+    top: -0.1em;
+    right: 3vw;
+    font-family: var(--ff-display);
+    font-size: clamp(18rem, 45vw, 52rem);
+    font-weight: 900;
+    line-height: 1;
+    color: #c8b98a;
+    opacity: 0.05;
+    user-select: none;
+    pointer-events: none;
+  }
+  .s-gallery .gallery-label {
+    font-family: var(--ff-body);
+    font-size: clamp(0.65rem, 0.9vw, 0.8rem);
+    font-weight: 500;
+    letter-spacing: 0.25em;
+    text-transform: uppercase;
+    color: #c8b98a;
+    margin-bottom: 4rem;
+    border-left: 3px solid #c8b98a;
+    padding-left: 1rem;
+  }
+  .s-gallery .spread-title {
+    font-size: clamp(3.5rem, 9.5vw, 9.5rem);
+    color: #f0ede0;
+    margin-bottom: 2rem;
+  }
+  .s-gallery .spread-body { color: #b8b098; }
+  .s-gallery .spread-source { color: #8a7a5a; }
+  .s-gallery .spread-link { color: #c8b98a; }
+  .s-gallery .year-tag {
+    font-family: var(--ff-display);
+    font-size: clamp(1.5rem, 3vw, 2.8rem);
+    font-weight: 300;
+    font-style: italic;
+    color: #6a5a3a;
+    margin-bottom: 3rem;
+  }
+
+  /* ── 9. PRODUCT — Pretty Fish ───────────────────── */
+  .s-product {
+    background: #f8f4ff;
+    color: #1a0a2e;
+    align-content: center;
+  }
+  .s-product .numeral {
+    position: absolute;
+    top: 50%;
+    right: 4vw;
+    transform: translateY(-50%);
+    font-family: var(--ff-display);
+    font-size: clamp(16rem, 38vw, 44rem);
+    font-weight: 900;
+    line-height: 1;
+    color: #7c3aed;
+    opacity: 0.06;
+    user-select: none;
+    pointer-events: none;
+  }
+  .s-product .product-kicker {
+    font-family: var(--ff-body);
+    font-size: clamp(0.7rem, 1vw, 0.85rem);
+    font-weight: 700;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: #7c3aed;
+    margin-bottom: 1.5rem;
+  }
+  .s-product .spread-title {
+    font-size: clamp(3.5rem, 9vw, 9rem);
+    color: #1a0a2e;
+    margin-bottom: 2rem;
+  }
+  .s-product .spread-body { color: #3d2060; }
+  .s-product .spread-source { color: #6a4090; }
+  .s-product .spread-link { color: #7c3aed; }
+  .s-product .tag-row {
+    display: flex;
+    gap: 0.6rem;
+    flex-wrap: wrap;
+    margin-top: 2rem;
+  }
+  .s-product .tag {
+    background: rgba(124,58,237,0.1);
+    border: 1px solid rgba(124,58,237,0.3);
+    color: #7c3aed;
+    font-size: 0.8rem;
+    font-weight: 600;
+    padding: 0.3rem 0.8rem;
+    border-radius: 100px;
+    letter-spacing: 0.05em;
+  }
+
+  /* ── 10. BUILDER CLOSER — Wacli ─────────────────── */
+  .s-builder {
+    background: #071209;
+    color: #e8f5e9;
+    align-content: center;
+  }
+  .s-builder .numeral {
+    position: absolute;
+    top: 50%;
+    right: 2vw;
+    transform: translateY(-50%);
+    font-family: var(--ff-display);
+    font-size: clamp(20rem, 48vw, 56rem);
+    font-weight: 900;
+    line-height: 1;
+    color: #16a34a;
+    opacity: 0.05;
+    user-select: none;
+    pointer-events: none;
+  }
+  .s-builder .build-eyebrow {
+    font-family: var(--ff-body);
+    font-size: clamp(0.7rem, 1vw, 0.85rem);
+    font-weight: 700;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: #4ade80;
+    margin-bottom: 1.5rem;
+  }
+  .s-builder .spread-title {
+    font-size: clamp(3.5rem, 9.5vw, 9.5rem);
+    color: #e8f5e9;
+    margin-bottom: 2rem;
+  }
+  .s-builder .spread-body { color: #86efac; }
+  .s-builder .spread-source { color: #4ade80; opacity: 0.7; }
+  .s-builder .spread-link { color: #4ade80; }
+  .s-builder .stat-row {
+    display: flex;
+    gap: 3rem;
+    margin-top: 3rem;
+    flex-wrap: wrap;
+  }
+  .s-builder .stat-item { }
+  .s-builder .stat-item .stat-val {
+    font-family: var(--ff-display);
+    font-size: clamp(2.5rem, 5vw, 4.5rem);
+    font-weight: 900;
+    color: #4ade80;
+    line-height: 1;
+  }
+  .s-builder .stat-item .stat-lbl {
+    font-size: 0.8rem;
+    font-weight: 600;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: #166534;
+    margin-top: 0.2rem;
+  }
+
+  /* ── FOOTER ──────────────────────────────────────── */
+  .footer {
+    background: #060606;
+    padding: 6vw 10vw;
+    border-top: 1px solid #1a1a1a;
+  }
+  .footer-top {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    margin-bottom: 3rem;
+    flex-wrap: wrap;
+    gap: 2rem;
+  }
+  .footer-brand {
+    font-family: var(--ff-display);
+    font-size: clamp(2rem, 4vw, 4rem);
+    font-weight: 900;
+    color: #fff;
+  }
+  .footer-meta {
+    font-family: var(--ff-body);
+    font-size: 0.85rem;
+    color: #555;
+    text-align: right;
+    line-height: 1.8;
+  }
+  .footer-rule { height: 1px; background: #1a1a1a; margin-bottom: 2rem; }
+  .footer-fine {
+    font-family: var(--ff-body);
+    font-size: 0.8rem;
+    color: #333;
+    line-height: 1.7;
+  }
+</style>
+</head>
+<body>
+
+<!-- ── COVER ── -->
+<section class="cover">
+  <div class="cover-eyebrow">Morning Edition &nbsp;·&nbsp; Hacker News Curated</div>
+  <h1 class="cover-title">Morning<br>Edition</h1>
+  <p class="cover-date">Tuesday, April 15, 2026</p>
+  <div class="cover-rule"></div>
+  <nav class="cover-toc">
+    <a href="#s1"><span class="num">01</span>Stop Flock — 870 pts</a>
+    <a href="#s2"><span class="num">02</span>Daily Claude Outage &nbsp;<span class="cover-flag">For You</span></a>
+    <a href="#s3"><span class="num">03</span>MCP as Observability Interface</a>
+    <a href="#s4"><span class="num">04</span>No Privilege for Your AI Chats</a>
+    <a href="#s5"><span class="num">05</span>Want to Write a Compiler?</a>
+    <a href="#s6"><span class="num">06</span>Gemma 4 Runs Natively on iPhone</a>
+    <a href="#s7"><span class="num">07</span>Solar-Powered Sea Slugs</a>
+    <a href="#s8"><span class="num">08</span>Guernica at Gigapixel</a>
+    <a href="#s9"><span class="num">09</span>Pretty Fish: A Better Mermaid Editor</a>
+    <a href="#s10"><span class="num">10</span>Wacli — WhatsApp CLI</a>
+  </nav>
+</section>
+
+<!-- ── 1. HERO — Stop Flock ── -->
+<section id="s1" class="spread s-hero">
+  <div class="numeral" aria-hidden="true">1</div>
+  <div>
+    <div class="badge">Top Story — 870 points</div>
+    <p class="spread-source">stopflock.com</p>
+    <h2 class="spread-title">Stop<br>Flock</h2>
+    <p class="spread-body">
+      Flock Safety manufactures AI-powered surveillance cameras deployed nationwide — tracking every vehicle that passes, logging color, damage, stickers, and movement patterns into a warrantless police-accessible database. This campaign argues the trade-off is false: mass surveillance infrastructure with no proven crime reduction, enormous civil liberties cost. The movement is gaining real traction.
+    </p>
+    <div class="pts">870 <span>points &nbsp;·&nbsp; 233 comments</span></div>
+    <a class="spread-link" href="https://stopflock.com" target="_blank" rel="noopener">Read &amp; Act →</a>
+  </div>
+</section>
+
+<!-- ── 2. MIDNIGHT ALERT — Claude Outage ── -->
+<section id="s2" class="spread s-midnight">
+  <div class="numeral" aria-hidden="true">2</div>
+  <div>
+    <div class="alert-pill">
+      ⚠ Live Alert &nbsp;·&nbsp; claudestatus.com
+      <span class="cover-flag flag-you">For You</span>
+    </div>
+    <p class="spread-meta">Flagged — Directly Applies To You</p>
+    <h2 class="spread-title">Daily Claude<br>Outage</h2>
+    <p class="spread-body">
+      The HN front page is tracking a live Claude outage — 136 points and 114 comments as users wait for <a href="https://claudestatus.com" target="_blank">claudestatus.com</a> to update. This is a recurring pattern: Claude's high daily active usage means even partial degradations show up immediately as community-sourced status pages. If Claude is slow today, this is why. Check the status page directly for resolution updates.
+    </p>
+    <a class="spread-link" href="https://news.ycombinator.com/item?id=43696069" target="_blank" rel="noopener">HN Discussion →</a>
+  </div>
+</section>
+
+<!-- ── 3. TERMINAL — MCP Observability ── -->
+<section id="s3" class="spread s-terminal">
+  <div class="numeral" aria-hidden="true">3</div>
+  <div>
+    <p class="term-prompt">$ claude --mcp-server ingero-observability --inspect gpu</p>
+    <p class="spread-source spread-meta" style="opacity:0.5;margin-bottom:1.5rem;">ingero.io &nbsp;·&nbsp; 30 pts</p>
+    <h2 class="spread-title">MCP as<br>Observability<br>Interface</h2>
+    <p class="spread-body">
+      Ingero is an open-source eBPF tool that traces GPU workloads from kernel → CUDA → Python. The twist: it ships an MCP server so you can point Claude directly at live runtime telemetry and ask natural-language questions about GPU bottlenecks. It's a working example of AI agents moving beyond conversation into actual systems investigation. If you're building anything that touches GPU performance, this is the pattern to study.
+    </p>
+    <div>
+      <span class="term-tag">MCP</span>
+      <span class="term-tag">eBPF</span>
+      <span class="term-tag">GPU</span>
+      <span class="term-tag">Claude</span>
+    </div>
+    <a class="spread-link" href="https://ingero.io" target="_blank" rel="noopener">Read more →</a>
+  </div>
+</section>
+
+<!-- ── 4. ROSE STAMP — AI Legal Warning ── -->
+<section id="s4" class="spread s-rose">
+  <div class="numeral" aria-hidden="true">4</div>
+  <div class="stamp">No<br>Privilege</div>
+  <div>
+    <p class="spread-meta">Legal Alert &nbsp;·&nbsp; S.D.N.Y. 2026</p>
+    <p class="spread-source">thomsonreuters.com &nbsp;·&nbsp; 43 pts</p>
+    <h2 class="spread-title">Your AI<br>Chats Can<br>Be Used<br>Against You</h2>
+    <p class="spread-body">
+      A Southern District of New York ruling in <em>US v. Heppner</em> held that conversations with AI assistants carry no attorney-client privilege. Lawyers are now issuing warnings: if you've discussed legal strategy, business risk, or sensitive matters with Claude, ChatGPT, or any AI, those logs could be subpoenaed. This is new ground — and it applies to everyone, not just lawyers.
+    </p>
+    <a class="spread-link" href="https://news.ycombinator.com/item?id=43694182" target="_blank" rel="noopener">Read the ruling discussion →</a>
+  </div>
+</section>
+
+<!-- ── 5. ACADEMIC DROP-CAP — Compiler Papers ── -->
+<section id="s5" class="spread s-academic">
+  <div class="numeral" aria-hidden="true">5</div>
+  <div>
+    <p class="spread-meta">Dev Education &nbsp;·&nbsp; 2008, Revisited</p>
+    <p class="spread-source">dadgum.com &nbsp;·&nbsp; 286 pts</p>
+    <h2 class="spread-title">Want to Write<br>a Compiler?</h2>
+    <p class="spread-body">
+      Two papers are all you need. That's the claim resurging on HN with 286 points — and the comments largely agree. Compiler writing is one of those skills that reshapes how you think about every layer of software you touch. The papers in question cut through decades of academic bloat to give a working mental model fast. High-signal reading for anyone who builds tools that transform text into behavior.
+    </p>
+    <div class="pts-badge">286 points &nbsp;·&nbsp; 83 comments</div>
+    <a class="spread-link" href="http://www.iro.umontreal.ca/~feeley/papers/CheeneyHendersonMurthySerranoBoneLiStuartTan09.pdf" target="_blank" rel="noopener" style="display:block;margin-top:1.5rem;">Read on dadgum.com →</a>
+    <a class="spread-link" href="https://news.ycombinator.com/item?id=43690536" target="_blank" rel="noopener">HN Discussion →</a>
+  </div>
+</section>
+
+<!-- ── 6. BIG-STAT — Gemma 4 on iPhone ── -->
+<section id="s6" class="spread s-bigstat">
+  <div class="numeral" aria-hidden="true">6</div>
+  <div>
+    <div class="stat-num">100%<br>Offline</div>
+    <p class="stat-label">On-Device AI Inference</p>
+    <p class="spread-source">gizmoweek.com &nbsp;·&nbsp; 174 pts</p>
+    <h2 class="spread-title">Gemma 4<br>Runs on iPhone.<br>No Cloud.</h2>
+    <p class="spread-body">
+      Google's Gemma 4 now runs natively on iPhone with full offline inference. No API calls, no data leaving the device. This is the trajectory: capable open-weight models small enough to run on phones, which unlocks privacy-first AI apps that work anywhere. The gap between on-device and cloud-hosted capability is closing faster than most people realize.
+    </p>
+    <a class="spread-link" href="https://gizmoweek.com" target="_blank" rel="noopener">Read more →</a>
+  </div>
+</section>
+
+<!-- ── 7. WEIRD SCIENCE — Sea Slugs ── -->
+<section id="s7" class="spread s-science">
+  <div class="numeral" aria-hidden="true">7</div>
+  <div>
+    <div class="eyebrow-tag">Weird Science</div>
+    <h2 class="spread-title">Solar-Powered<br>Animals</h2>
+    <p class="sci-name">Costasiella kuroshimae</p>
+    <p class="spread-body">
+      A tiny sea slug steals chloroplasts from algae and incorporates them into its own cells, sustaining photosynthesis for weeks — essentially becoming solar-powered. This is <em>kleptoplasty</em>: the animal equivalent of running a stolen power plant. The biology is genuinely strange; it's not clear how the chloroplasts keep working outside a plant cell. One of those Wikipedia rabbitholes that will recalibrate your sense of what's possible in biology.
+    </p>
+    <a class="spread-link" href="https://en.wikipedia.org/wiki/Costasiella_kuroshimae" target="_blank" rel="noopener">Down the rabbit hole →</a>
+  </div>
+</section>
+
+<!-- ── 8. GALLERY — Guernica Gigapixel ── -->
+<section id="s8" class="spread s-gallery">
+  <div class="numeral" aria-hidden="true">8</div>
+  <div>
+    <p class="gallery-label">Museo Reina Sofía &nbsp;·&nbsp; Madrid</p>
+    <p class="year-tag">Picasso, 1937</p>
+    <p class="spread-source">museoreinasofia.es &nbsp;·&nbsp; 181 pts</p>
+    <h2 class="spread-title">Guernica<br>at Gigapixel</h2>
+    <p class="spread-body">
+      The Reina Sofía has published a gigapixel rendering of Picasso's <em>Guernica</em> — 3.49 × 7.76 metres of paint now zoomable to individual brushstrokes. You can see the layers, the corrections, the texture of the canvas beneath. Guernica has always worked at scale; at this resolution it becomes something else entirely. Worth 20 minutes of unhurried looking.
+    </p>
+    <a class="spread-link" href="https://www.museoreinasofia.es/coleccion/obra/guernica" target="_blank" rel="noopener">View the painting →</a>
+  </div>
+</section>
+
+<!-- ── 9. PRODUCT — Pretty Fish ── -->
+<section id="s9" class="spread s-product">
+  <div class="numeral" aria-hidden="true">9</div>
+  <div>
+    <p class="product-kicker">Show HN &nbsp;·&nbsp; Creative Dev Tool</p>
+    <p class="spread-source">pretty.fish &nbsp;·&nbsp; 46 pts</p>
+    <h2 class="spread-title">Pretty<br>Fish</h2>
+    <p class="spread-body">
+      A better Mermaid diagram editor — built on the premise that diagramming tools should be as pleasant to use as good writing tools. Pretty Fish lets you write Mermaid syntax and see live, styled previews without fighting the default renderer. If you use diagrams in documentation, architecture notes, or knowledge bases, this is worth a look.
+    </p>
+    <div class="tag-row">
+      <span class="tag">Diagrams</span>
+      <span class="tag">Mermaid</span>
+      <span class="tag">Dev Tool</span>
+      <span class="tag">Show HN</span>
+    </div>
+    <a class="spread-link" href="https://pretty.fish" target="_blank" rel="noopener">Try it →</a>
+  </div>
+</section>
+
+<!-- ── 10. BUILDER CLOSER — Wacli ── -->
+<section id="s10" class="spread s-builder">
+  <div class="numeral" aria-hidden="true">10</div>
+  <div>
+    <p class="build-eyebrow">Build This &nbsp;·&nbsp; Open Source</p>
+    <p class="spread-source">github.com &nbsp;·&nbsp; 165 pts</p>
+    <h2 class="spread-title">Wacli:<br>WhatsApp<br>from the<br>Terminal</h2>
+    <p class="spread-body">
+      Wacli is a WhatsApp CLI — sync, search, and send messages without opening your phone or browser. The 165-point response suggests this scratches a real itch. The source is open, the approach is buildable, and the pattern is obvious to extend: pipe WhatsApp into anything scriptable. If you automate workflows or build tools for people who live in WhatsApp, this is a solid foundation to fork.
+    </p>
+    <div class="stat-row">
+      <div class="stat-item">
+        <div class="stat-val">165</div>
+        <div class="stat-lbl">Points</div>
+      </div>
+      <div class="stat-item">
+        <div class="stat-val">120</div>
+        <div class="stat-lbl">Comments</div>
+      </div>
+    </div>
+    <a class="spread-link" href="https://github.com/nicholasgasior/wacli" target="_blank" rel="noopener">View on GitHub →</a>
+  </div>
+</section>
+
+<!-- ── FOOTER ── -->
+<footer class="footer">
+  <div class="footer-top">
+    <div class="footer-brand">Morning Edition</div>
+    <div class="footer-meta">
+      April 15, 2026<br>
+      Curated from Hacker News<br>
+      10 stories · 1 flagged for you
+    </div>
+  </div>
+  <div class="footer-rule"></div>
+  <p class="footer-fine">
+    Stories selected for relevance to AI tools (especially Claude), creative software, dev tools, weird science, and actionable content. Points and comment counts reflect the time of curation. All links open original sources.
+  </p>
+</footer>
+
+</body>
+</html>
