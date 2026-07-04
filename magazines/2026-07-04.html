@@ -1,0 +1,405 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Morning Edition — July 4, 2026</title>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,100..900;1,9..144,100..900&family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth;font-size:18px}
+body{font-family:'Inter',sans-serif;color:#1a1a1a;background:#f5f2ed;overflow-x:hidden}
+h1,h2,h3,.display{font-family:'Fraunces',serif}
+a{color:inherit;text-decoration:none}
+a:hover{text-decoration:underline}
+
+/* MASTHEAD */
+.masthead{
+  background:#1a1a1a;color:#f5f2ed;
+  padding:2.5rem 3rem;
+  display:flex;align-items:center;justify-content:space-between;
+  flex-wrap:wrap;gap:1rem;
+}
+.masthead h1{font-size:2.8rem;font-weight:900;letter-spacing:-0.03em;line-height:1}
+.masthead .date{font-size:1.1rem;font-weight:300;letter-spacing:0.15em;text-transform:uppercase;opacity:0.7}
+.masthead .tagline{font-size:1rem;font-weight:400;opacity:0.5;width:100%;margin-top:0.2rem}
+.flag-banner{
+  background:linear-gradient(90deg,#b91c1c 33%,#f5f5f5 33%,#f5f5f5 66%,#1e40af 66%);
+  height:6px;
+}
+
+/* SHARED SPREAD STYLES */
+.spread{
+  min-height:100vh;
+  padding:4rem 3rem;
+  display:flex;flex-direction:column;
+  justify-content:center;
+  position:relative;overflow:hidden;
+}
+.spread .num{
+  font-family:'Fraunces',serif;
+  font-weight:900;opacity:0.08;
+  position:absolute;
+  font-size:28rem;line-height:1;
+  pointer-events:none;
+}
+.spread .story-meta{
+  font-size:0.85rem;font-weight:500;
+  letter-spacing:0.1em;text-transform:uppercase;
+  margin-bottom:1.5rem;opacity:0.6;
+}
+.spread .headline{
+  font-family:'Fraunces',serif;
+  font-weight:800;line-height:1.08;
+  margin-bottom:1.5rem;
+}
+.spread .lede{
+  font-size:1.25rem;line-height:1.7;
+  max-width:680px;
+  font-weight:400;
+}
+.spread .source-link{
+  display:inline-block;margin-top:2rem;
+  font-size:0.9rem;font-weight:600;
+  letter-spacing:0.08em;text-transform:uppercase;
+  border-bottom:2px solid currentColor;
+  padding-bottom:2px;
+}
+.spread .hn-points{
+  display:inline-block;
+  background:rgba(0,0,0,0.08);
+  border-radius:100px;padding:0.3rem 0.9rem;
+  font-size:0.8rem;font-weight:700;
+  margin-left:0.5rem;vertical-align:middle;
+}
+.flag-badge{
+  display:inline-block;
+  background:#b91c1c;color:#fff;
+  font-size:0.75rem;font-weight:800;
+  letter-spacing:0.15em;text-transform:uppercase;
+  padding:0.4rem 1rem;border-radius:4px;
+  margin-bottom:1rem;
+}
+
+/* ---- SPREAD 1: HERO ---- */
+.spread-1{
+  background:linear-gradient(135deg,#0f172a 0%,#1e3a5f 50%,#0f172a 100%);
+  color:#e2e8f0;
+  min-height:100vh;
+}
+.spread-1 .num{color:#38bdf8;right:-4rem;bottom:-6rem;opacity:0.06}
+.spread-1 .headline{font-size:4.5rem;max-width:900px;color:#f1f5f9}
+.spread-1 .lede{color:#94a3b8}
+.spread-1 .source-link{color:#38bdf8}
+.spread-1 .hn-points{background:rgba(56,189,248,0.15);color:#38bdf8}
+.spread-1 .pullquote{
+  font-family:'Fraunces',serif;font-style:italic;
+  font-size:1.6rem;color:#38bdf8;
+  border-left:4px solid #38bdf8;padding-left:1.5rem;
+  margin:2rem 0;max-width:700px;line-height:1.5;
+}
+
+/* ---- SPREAD 2: WARM CREAM ---- */
+.spread-2{
+  background:#fef7ed;color:#44403c;
+}
+.spread-2 .num{color:#f59e0b;left:-3rem;top:-5rem;opacity:0.05}
+.spread-2 .headline{font-size:3.8rem;color:#292524;max-width:800px}
+.spread-2 .lede{color:#57534e}
+.spread-2 .pullquote{
+  font-family:'Fraunces',serif;font-style:italic;
+  font-size:1.5rem;color:#b45309;
+  border-left:4px solid #f59e0b;padding-left:1.5rem;
+  margin:2rem 0;max-width:650px;line-height:1.5;
+}
+.spread-2 .source-link{color:#b45309}
+
+/* ---- SPREAD 3: ROSE ALERT ---- */
+.spread-3{
+  background:#fff1f2;color:#881337;
+  position:relative;
+}
+.spread-3 .num{color:#e11d48;right:-2rem;top:-4rem;opacity:0.04}
+.spread-3 .headline{font-size:3.5rem;color:#9f1239;max-width:850px}
+.spread-3 .lede{color:#be123c}
+.spread-3 .stamp{
+  position:absolute;top:3rem;right:3rem;
+  transform:rotate(12deg);
+  border:4px solid #e11d48;border-radius:8px;
+  padding:0.6rem 1.5rem;
+  font-family:'Fraunces',serif;font-weight:900;
+  font-size:1.2rem;color:#e11d48;
+  text-transform:uppercase;letter-spacing:0.1em;
+  opacity:0.7;
+}
+.spread-3 .source-link{color:#e11d48}
+.spread-3 .hn-points{background:rgba(225,29,72,0.1);color:#e11d48}
+
+/* ---- SPREAD 4: TERMINAL ---- */
+.spread-4{
+  background:#0a0a0a;color:#4ade80;
+  font-family:'Courier New',monospace;
+}
+.spread-4 .num{color:#4ade80;left:-2rem;bottom:-5rem;opacity:0.04}
+.spread-4 .headline{
+  font-family:'Courier New',monospace;
+  font-size:3rem;font-weight:700;color:#22c55e;max-width:900px;
+}
+.spread-4 .story-meta{color:#4ade80;font-family:'Courier New',monospace}
+.spread-4 .lede{color:#86efac;font-family:'Inter',sans-serif}
+.spread-4 .source-link{color:#4ade80;border-color:#4ade80}
+.spread-4 .hn-points{background:rgba(74,222,128,0.1);color:#4ade80}
+.spread-4 .cursor{animation:blink 1s step-end infinite;color:#4ade80}
+@keyframes blink{0%,100%{opacity:1}50%{opacity:0}}
+
+/* ---- SPREAD 5: ACADEMIC DROP-CAP ---- */
+.spread-5{
+  background:#faf8f1;color:#3f3f46;
+}
+.spread-5 .num{color:#a78bfa;right:-3rem;top:-6rem;opacity:0.04}
+.spread-5 .headline{font-size:3.2rem;color:#18181b;max-width:800px}
+.spread-5 .lede{color:#52525b;font-size:1.2rem}
+.spread-5 .dropcap{
+  font-family:'Fraunces',serif;font-weight:900;
+  float:left;font-size:5rem;line-height:0.8;
+  padding-right:0.5rem;padding-top:0.15rem;
+  color:#7c3aed;
+}
+.spread-5 .source-link{color:#7c3aed}
+.spread-5 .hn-points{background:rgba(124,58,237,0.08);color:#7c3aed}
+
+/* ---- SPREAD 6: BIG-STAT ---- */
+.spread-6{
+  background:linear-gradient(135deg,#ecfdf5 0%,#d1fae5 100%);
+  color:#064e3b;
+}
+.spread-6 .num{color:#10b981;left:-2rem;bottom:-5rem;opacity:0.05}
+.spread-6 .bigstat{
+  font-family:'Fraunces',serif;font-weight:900;
+  font-size:7rem;line-height:1;color:#059669;
+  margin-bottom:0.5rem;
+}
+.spread-6 .bigstat-label{
+  font-size:1rem;font-weight:600;text-transform:uppercase;
+  letter-spacing:0.15em;color:#047857;margin-bottom:2rem;
+}
+.spread-6 .headline{font-size:3rem;color:#064e3b;max-width:800px}
+.spread-6 .lede{color:#065f46}
+.spread-6 .source-link{color:#059669}
+
+/* ---- SPREAD 7: EDITORIAL BLACK/WHITE ---- */
+.spread-7{
+  background:#18181b;color:#fafafa;
+}
+.spread-7 .num{color:#fafafa;right:-3rem;bottom:-5rem;opacity:0.03}
+.spread-7 .headline{font-size:3.8rem;color:#fff;max-width:850px}
+.spread-7 .lede{color:#a1a1aa}
+.spread-7 .source-link{color:#fbbf24}
+.spread-7 .hn-points{background:rgba(251,191,36,0.12);color:#fbbf24}
+.spread-7 .accent{color:#fbbf24}
+
+/* ---- SPREAD 8: NATURE/BOTANICAL ---- */
+.spread-8{
+  background:linear-gradient(180deg,#f0fdf4 0%,#dcfce7 40%,#bbf7d0 100%);
+  color:#14532d;
+}
+.spread-8 .num{color:#22c55e;left:-3rem;top:-4rem;opacity:0.04}
+.spread-8 .headline{font-size:3.5rem;color:#166534;max-width:800px}
+.spread-8 .lede{color:#15803d}
+.spread-8 .source-link{color:#16a34a}
+.spread-8 .bird-emoji{font-size:4rem;margin-bottom:1rem;display:block}
+
+/* ---- SPREAD 9: CAUTION/INDUSTRIAL ---- */
+.spread-9{
+  background:#fefce8;color:#713f12;
+  border-left:8px solid #eab308;
+}
+.spread-9 .num{color:#eab308;right:-2rem;bottom:-5rem;opacity:0.04}
+.spread-9 .headline{font-size:3.2rem;color:#854d0e;max-width:850px}
+.spread-9 .lede{color:#a16207}
+.spread-9 .caution-bar{
+  background:repeating-linear-gradient(45deg,#eab308,#eab308 20px,#1a1a1a 20px,#1a1a1a 40px);
+  height:8px;margin-bottom:2rem;border-radius:2px;
+}
+.spread-9 .source-link{color:#ca8a04}
+
+/* ---- SPREAD 10: GALLERY ---- */
+.spread-10{
+  background:linear-gradient(135deg,#fdf4ff 0%,#fae8ff 50%,#f5d0fe 100%);
+  color:#581c87;
+}
+.spread-10 .num{color:#c084fc;right:-3rem;top:-5rem;opacity:0.04}
+.spread-10 .headline{font-size:3.5rem;color:#6b21a8;max-width:800px}
+.spread-10 .lede{color:#7e22ce}
+.spread-10 .source-link{color:#9333ea}
+.spread-10 .palette{
+  display:flex;gap:0.5rem;margin:1.5rem 0;
+}
+.spread-10 .palette span{
+  width:40px;height:40px;border-radius:50%;
+}
+
+/* COLOPHON */
+.colophon{
+  background:#1a1a1a;color:#71717a;
+  padding:3rem;text-align:center;
+  font-size:0.85rem;
+}
+.colophon a{color:#a1a1aa}
+
+@media(max-width:768px){
+  .spread{padding:2.5rem 1.5rem;min-height:auto;min-height:90vh}
+  .spread .headline{font-size:2.2rem!important}
+  .spread .num{font-size:14rem!important}
+  .spread-1 .headline{font-size:2.8rem!important}
+  .spread-6 .bigstat{font-size:4rem!important}
+  .masthead h1{font-size:1.8rem}
+  .spread-3 .stamp{position:static;transform:none;margin-bottom:1rem;display:inline-block}
+}
+</style>
+</head>
+<body>
+
+<div class="flag-banner"></div>
+
+<header class="masthead">
+  <div>
+    <h1>Morning Edition</h1>
+    <div class="tagline">Curated from Hacker News &middot; Independence Day</div>
+  </div>
+  <div class="date">Friday, July 4, 2026</div>
+</header>
+
+<!-- ===== STORY 1: HERO ===== -->
+<section class="spread spread-1">
+  <div class="num">01</div>
+  <div class="story-meta">692 points &middot; mikebowler.ca <span class="hn-points">Top Story</span></div>
+  <h2 class="headline">The Bottleneck Might Be the Air in the Room</h2>
+  <div class="pullquote">&ldquo;You are running your highest-stakes thinking in the environment least suited to it.&rdquo;</div>
+  <p class="lede">
+    Harvard research shows cognitive scores plummet as CO&#8322; rises &mdash; and a closed room with a few people hits dangerous 1,000 ppm inside the first hour. Lawrence Berkeley National Lab found performance dropped on six of nine decision-making measures at that level. Your all-day planning sessions, architecture reviews, and quarterly offsites in windowless boardrooms? Precisely the conditions where decision quality measurably falls. Open a window. It might be your highest-leverage productivity hack.
+  </p>
+  <a class="source-link" href="https://blog.mikebowler.ca/2026/07/03/co2-and-decision-making/" target="_blank">Read the full article &rarr;</a>
+</section>
+
+<!-- ===== STORY 2: WARM CREAM ===== -->
+<section class="spread spread-2">
+  <div class="num">02</div>
+  <div class="story-meta">374 points &middot; marginalia.nu</div>
+  <h2 class="headline">Maybe You Should Learn Something</h2>
+  <div class="pullquote">&ldquo;Daily deliberate practice is what makes you better. Improvement happens overnight, through sleep, after the practice.&rdquo;</div>
+  <p class="lede">
+    Adults should pursue self-directed learning &mdash; pixel art, touch typing, music, woodworking, a language &mdash; because it enriches life far beyond the skill itself. The essay's key insight: you must push through the discouraging "Mt. Awful" phase where initial practice feels terrible and shows no visible progress. But keep going. Competence builds in the background. Long-term skill development ultimately builds personal agency and makes you a more interesting human. Pick something practical that calls to you, and start today.
+  </p>
+  <a class="source-link" href="https://www.marginalia.nu/log/a_135_learn/" target="_blank">Read the essay &rarr;</a>
+</section>
+
+<!-- ===== STORY 3: ROSE ALERT ===== -->
+<section class="spread spread-3">
+  <div class="num">03</div>
+  <div class="stamp">Applies To You</div>
+  <div class="flag-badge">&#9873; Flagged for You</div>
+  <div class="story-meta">232 points &middot; github.com/anthropics</div>
+  <h2 class="headline">Claude Code: Potential Session Leakage Between Users</h2>
+  <p class="lede">
+    A user reported receiving Minecraft-related responses in Claude Code despite working on unrelated tasks, sparking debate about whether this represents genuine cross-session data leakage or model hallucination. The concern: Claude's infrastructure shares expensive KV cache resources across tenants for efficiency &mdash; could bugs in cache key computation, hash collisions, or race conditions accidentally serve one user's cached responses to another? Most experts concluded this specific case was likely model confusion (the user had a minecraft.py in their file listing), but the architectural risks of shared-resource LLM serving are real and worth watching &mdash; especially if you're using Claude Code for sensitive work.
+  </p>
+  <a class="source-link" href="https://news.ycombinator.com/item?id=48785485" target="_blank">Read the discussion &rarr;</a>
+</section>
+
+<!-- ===== STORY 4: TERMINAL ===== -->
+<section class="spread spread-4">
+  <div class="num">04</div>
+  <div class="story-meta">$ cat /security/youtube-leak.md</div>
+  <h2 class="headline">> Leaking YouTube Creators' Private Videos via Prompt Injection<span class="cursor">_</span></h2>
+  <p class="lede">
+    A researcher discovered a prompt injection flaw in YouTube Studio's AI assistant: attackers inject malicious instructions through video comments, which the AI reads as system-level directives. When creators interacted with suggested AI prompts, the injected payload forced the AI to generate links containing private video titles &mdash; information the creator never intended to share. The vulnerability exploited creator trust in Google's own product rather than requiring social engineering. Google declined to classify it as a security bug, sparking debate about prompt injection as a vulnerability class. A cautionary tale for anyone building AI features that ingest untrusted user content.
+  </p>
+  <a class="source-link" href="https://javoriuski.com/post/youtube" target="_blank">Read the writeup &rarr;</a>
+</section>
+
+<!-- ===== STORY 5: ACADEMIC ===== -->
+<section class="spread spread-5">
+  <div class="num">05</div>
+  <div class="story-meta">162 points &middot; quantamagazine.org</div>
+  <h2 class="headline">Astrophysicists Puzzle Over Webb&rsquo;s New Universe</h2>
+  <p class="lede">
+    <span class="dropcap">T</span>he James Webb Space Telescope keeps finding things that shouldn't exist. Hundreds of mysterious "little red dots" &mdash; never seen before Webb came online &mdash; are appearing roughly 650 million years after the Big Bang. Black holes that seem impossibly large for their age. Ancient galaxies that defy what we thought about the first billion years. Proposed explanations include the first galaxies converting gas to stars more efficiently, periodic bursts of star formation, or early regions preferentially creating massive, extremely bright stars. Whatever the answer, our models of the early universe need serious revision.
+  </p>
+  <a class="source-link" href="https://www.quantamagazine.org/astrophysicists-puzzle-over-webbs-new-universe-20260702/" target="_blank">Read on Quanta &rarr;</a>
+</section>
+
+<!-- ===== STORY 6: BIG-STAT ===== -->
+<section class="spread spread-6">
+  <div class="num">06</div>
+  <div class="bigstat">15&times;</div>
+  <div class="bigstat-label">Cheaper AI inference in two years</div>
+  <h2 class="headline">Performance Per Dollar Is Getting Faster and Cheaper</h2>
+  <p class="lede">
+    AMD's MI355X GPU is becoming competitive with NVIDIA for AI inference, offering dramatically better performance-per-dollar through optimized MXFP4 quantization. The article tracks how inference costs have cratered &mdash; but commenters warn that FP4 quantization is "practically never lossless in actual use," raising questions about quality vs. raw throughput. Still, the trend is clear: the economic moat around running your own AI is shrinking fast. For builders, this means self-hosted inference is increasingly viable. For everyone else, expect prices to keep falling.
+  </p>
+  <a class="source-link" href="https://news.ycombinator.com/item?id=48746090" target="_blank">Read the analysis &rarr;</a>
+</section>
+
+<!-- ===== STORY 7: EDITORIAL BLACK/WHITE ===== -->
+<section class="spread spread-7">
+  <div class="num">07</div>
+  <div class="story-meta">335 points &middot; mistral.ai <span class="hn-points accent">AI Tool</span></div>
+  <h2 class="headline">Leanstral 1.5: <span class="accent">Proof Abundance</span> for All</h2>
+  <p class="lede">
+    Mistral released Leanstral, an open-source AI coding agent purpose-built for Lean 4, the proof assistant used in formal mathematics and software verification. With just 6B active parameters using sparse architecture, it outperforms larger competitors in a single pass &mdash; and matches Claude Sonnet's performance at $36 vs. $549. Apache 2.0 licensed with free API access. Formal proof engineering just became dramatically more accessible for researchers working on complex mathematical problems and critical software systems. This is how AI tools should ship: small, focused, open, and cheap.
+  </p>
+  <a class="source-link" href="https://mistral.ai/news/leanstral" target="_blank">Read the announcement &rarr;</a>
+</section>
+
+<!-- ===== STORY 8: NATURE ===== -->
+<section class="spread spread-8">
+  <div class="num">08</div>
+  <span class="bird-emoji">&#x1F426;</span>
+  <div class="story-meta">62 points &middot; freepressjournal.in</div>
+  <h2 class="headline">Breaking the Bird Barrier: Scientist Decodes Zebra Finch Language</h2>
+  <p class="lede">
+    Dr. Julie Elie of UC Berkeley won the 2026 Coller-Dolittle Prize for decoding zebra finch communication, identifying 11 core calls and their meanings through machine learning and behavioral experiments. The birds use distinct vocalizations to announce identity and recognize each other individually. Most remarkably, when finches confused calls, they mixed up calls with similar <em>meanings</em> rather than similar <em>sounds</em> &mdash; suggesting genuine semantic understanding. The birds know what they're saying. Interspecies communication just got a lot more interesting.
+  </p>
+  <a class="source-link" href="https://freepressjournal.in/science/breaking-the-bird-barrier-scientist-decodes-zebra-finch-language" target="_blank">Read the story &rarr;</a>
+</section>
+
+<!-- ===== STORY 9: CAUTION ===== -->
+<section class="spread spread-9">
+  <div class="num">09</div>
+  <div class="caution-bar"></div>
+  <div class="story-meta">116 points &middot; tomshardware.com</div>
+  <h2 class="headline">Meta Data Center Water Discharges Suspended for Contaminating Water Supply</h2>
+  <p class="lede">
+    Cheyenne, Wyoming suspended all data center wastewater discharges after tracing a rare metal-resistant bacterium &mdash; <em>Cupriavidus gilardii</em> &mdash; to Meta's contractor Goat Systems. The contamination knocked two water reclamation plants offline for months of cleanup. Meanwhile, a separate investigation in Georgia found a data center secretly used 29 million gallons over 15 months before residents noticed low water pressure. The incidents didn't affect drinking water, but they're accelerating local political revolts against data center expansion. The real cost of AI infrastructure is showing up in unexpected places.
+  </p>
+  <a class="source-link" href="https://www.tomshardware.com/tech-industry/data-centers/cheyenne-suspends-data-center-fill-and-flush-and-closed-loop-discharges-after-meta-contractor-contaminated-its-reuse-water-system" target="_blank">Read on Tom&rsquo;s Hardware &rarr;</a>
+</section>
+
+<!-- ===== STORY 10: GALLERY ===== -->
+<section class="spread spread-10">
+  <div class="num">10</div>
+  <div class="palette">
+    <span style="background:#f472b6"></span>
+    <span style="background:#818cf8"></span>
+    <span style="background:#34d399"></span>
+    <span style="background:#fbbf24"></span>
+    <span style="background:#f87171"></span>
+  </div>
+  <div class="story-meta">35 points &middot; joonas.wtf</div>
+  <h2 class="headline">Plein Air: Paintings Matched to Your Weather</h2>
+  <p class="lede">
+    A beautiful web app that shows you paintings matched to your current weather and location. It pairs "the sky over your head and the sky in the painting," selecting public-domain artworks from the Metropolitan Museum, Art Institute of Chicago, Cleveland Museum of Art, and Wikimedia Commons whose atmospheric conditions mirror yours right now. Named after the classical technique of painting outdoors, it's a small, perfect thing &mdash; the kind of creative software that makes the web worth browsing. Open it on a rainy day.
+  </p>
+  <a class="source-link" href="https://art.joonas.wtf/" target="_blank">Try Plein Air &rarr;</a>
+</section>
+
+<!-- COLOPHON -->
+<footer class="colophon">
+  <p>Morning Edition &middot; July 4, 2026 &middot; Curated from <a href="https://news.ycombinator.com" target="_blank">Hacker News</a></p>
+  <p style="margin-top:0.5rem">Happy Independence Day &#x1f1fa;&#x1f1f8;</p>
+  <p style="margin-top:1rem;font-size:0.75rem;opacity:0.5">Built by Claude &middot; <a href="https://phoenix-maker-creations.github.io/morning-edition/magazines/2026-07-04.html">Shareable link</a></p>
+</footer>
+
+</body>
+</html>
